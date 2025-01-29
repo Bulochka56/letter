@@ -2,3 +2,4 @@ streamlit
 torch==2.5.1  
 transformers==4.48.1
 requests
+tf-keras==2.18.0

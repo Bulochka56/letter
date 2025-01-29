@@ -10,8 +10,8 @@ from transformers import pipeline
 
 #кэшируем модель
 @st.cache_data
-#def load_model():
-    #return VisionEncoderDecoderModel.from_pretrained("kazars24/trocr-base-handwritten-ru")
+def load_model():
+    return pipeline("image-to-text", model="kazars24/trocr-base-handwritten-ru")
 #def load_processor():
     #return TrOCRProcessor.from_pretrained("kazars24/trocr-base-handwritten-ru")
 
@@ -36,7 +36,7 @@ def load_image():
 st.title('Распознавание письменного текста с картинки')
 #model = load_model()	
 #processor = load_processor()    
-image_to_text = pipeline("image-to-text", model="kazars24/trocr-base-handwritten-ru")
+image_to_text = load_model()
 
 im=load_image()
 sleep_duration = 0.5
@@ -44,4 +44,4 @@ result = st.button('Распознать:')
 if result:
    preds = image_to_text(im)
    st.write('**На картинке:**')
-   st.write(str(preds))
+   st.write(str(preds[0]["generated_text"]))
