@@ -9,7 +9,6 @@ from transformers import VisionEncoderDecoderModel, ViTFeatureExtractor,TrOCRPro
 @st.cache_data
 def load_model():
     return VisionEncoderDecoderModel.from_pretrained("kazars24/trocr-base-handwritten-ru")
-@st.cache_data
 def load_processor():
     return TrOCRProcessor.from_pretrained("kazars24/trocr-base-handwritten-ru")
 
