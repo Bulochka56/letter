@@ -10,8 +10,6 @@ from transformers import pipeline
 @st.cache_data
 def load_model():
     return pipeline("image-to-text", model="kazars24/trocr-base-handwritten-ru")
-#def load_processor():
-    #return TrOCRProcessor.from_pretrained("kazars24/trocr-base-handwritten-ru")
 
 # Функция загрузки ихображения через Streamlit
 def load_image():
